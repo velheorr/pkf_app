@@ -1,0 +1,16 @@
+.formDiv div {
+    display: flex;
+    padding-bottom: 15px;
+}
+.formDiv input {
+    flex: 1;
+    max-width: 350px;
+    margin-left: 10px;
+}
+.formDiv label {
+    width: 130px;
+    text-align: right;
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.6)
+}
+.btns {float: right;}

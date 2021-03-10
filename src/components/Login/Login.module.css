@@ -1,0 +1,27 @@
+.header {
+    font-size: 18px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.login {
+    padding-bottom: 15px;
+}
+.login>div {
+    display: flex;
+    padding: 10px;
+}
+.login label {
+    font-style: italic;
+    width: 60px;
+    color: rgba(0, 0, 0, 0.6)
+}
+
+.login input {
+    margin-left: 20px;
+}
+
+.login button {
+    margin-top: 20px;
+    width: 270px;
+}
