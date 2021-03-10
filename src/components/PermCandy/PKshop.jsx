@@ -11,8 +11,6 @@ const PKshop = ({props})=> {
     }
 
     const ShopListItems = props.list.map((l) => <ShopList l={l} key={l.id} expanded={expanded} expand={expand}/>)
-
-
     return(
         <div>
             <div className={s.header}>Сеть фирменных магазинов "Пермские конфеты"</div><hr/>
