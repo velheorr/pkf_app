@@ -1,38 +1,49 @@
-.App {
-  text-align: center;
+.pkf_app {
+  display: grid;
+  width: 100%;
+  /*min-height: 900px;*/
+  margin: 0 auto;
+
+  grid-template-areas:
+          "h h"
+          "s c";
+  grid-template-rows: 40px 1fr;
+  grid-template-columns: 1fr 11fr;
+  grid-gap: 10px;
+
+  background-color: #e4e4e4;
+  font-family: -apple-system,BlinkMacSystemFont,Roboto,Open Sans,Helvetica Neue,"Noto Sans Armenian","Noto Sans Bengali","Noto Sans Cherokee","Noto Sans Devanagari","Noto Sans Ethiopic","Noto Sans Georgian","Noto Sans Hebrew","Noto Sans Kannada","Noto Sans Khmer","Noto Sans Lao","Noto Sans Osmanya","Noto Sans Tamil","Noto Sans Telugu","Noto Sans Thai",sans-serif;
+
+}
+.pkf_header {
+  grid-area: h;
+  background-color: #FFF;
+  border: 1px solid #CBCBCB;
+  border-top: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.pkf_sidebar {
+  grid-area: s;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.pkf_app_wrapper {
+  grid-area: c;
+  /*background: #FFF;
+  border: 1px solid #CBCBCB;*/
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+.sidebar>div {
+    padding: 0px 5px;
+    text-shadow: 1px 1px white;
+    height: 30px;
+}
+.sidebar ul {
+    padding-top: 0;
+}
+
+.sidebar a {
+    text-decoration: none;
+    color: #000;
+}
+
+.sidebar div span {line-height: 1;}
+.activeLink {font-style: italic;}
+.activeLink div span {font-weight: 600;}
+
+.sideIcon {
+    min-width: 24px !important;
+}
+
+.sideIcon svg {
+    font-size: 1rem;
+}

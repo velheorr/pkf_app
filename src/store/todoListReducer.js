@@ -1,51 +1,51 @@
-import {phoneBookApi} from '../api/api'
+const TODO_LIST_ADD_ITEM = 'TODO_LIST_ADD_ITEM';
+const TODO_LIST_INPUT_ITEM = 'TODO_LIST_INPUT_ITEM';
+const TODO_LIST_INPUT_ITEM_ID = 'TODO_LIST_INPUT_ITEM_ID';
+const TODO_LIST_UPDATE_ITEM = 'TODO_LIST_UPDATE_ITEM';
+const TODO_LIST_DELETE_ITEM = 'TODO_LIST_DELETE_ITEM';
 
-const PHONE_BOOK_SET_LIST = 'PHONE_BOOK_SET_LIST';
-const PHONE_BOOK_FINDER = 'PHONE_BOOK_FINDER';
-const PHONE_BOOK_FILTER = 'PHONE_BOOK_FILTER';
 
 const defaultState = {
-    list: [],
-    finder: '',
-    sortedList: null,
-    user: [],
+    listItems: [
+        {id: 1, text: 'aaaaaaaaa'},
+        {id: 2, text: 'bbbbbbbbb'},
+        {id: 3, text: 'ccccccccc'}
+    ],
+    newItem: '',
+    editItemId: null
+
 };
 
-export const phoneBookReducer = (state = defaultState, action) => {
+export const todoListReducer = (state = defaultState, action) => {
     switch (action.type) {
-        case PHONE_BOOK_SET_LIST:
-            let compare = (a,b) =>{
-                let res = 0;
-                a.department.toLowerCase() > b.department.toLowerCase() ? res = 1 : res = -1
-                return res
+        case TODO_LIST_ADD_ITEM:
+            if(state.newItem.length >0) {
+                return {
+                    ...state, listItems: [...state.listItems, {id: Date.now(), text: state.newItem}]
+                }
             }
-            let sorted = action.payload.sort(compare)
-            return { ...state, list: sorted}
-        case PHONE_BOOK_FINDER:  return {...state, finder: action.payload}
-        case PHONE_BOOK_FILTER:  return {...state, sortedList: action.payload}
+        case TODO_LIST_UPDATE_ITEM:
+            return {
+                ...state, listItems: state.listItems.map(i => {
+                    if(i.id === state.editItemId){return { ...i, text: state.newItem}}
+                    return i;
+                }), editItemId: null, newItem: ''
+            }
+        case TODO_LIST_INPUT_ITEM:  return {...state, newItem: action.payload}
+        case TODO_LIST_INPUT_ITEM_ID:  return {...state, editItemId: action.payload}
+        case TODO_LIST_DELETE_ITEM:  return {
+            //...state, listItems: state.listItems.filter(x => {if(x.id != state.editItemId){return x}})
+            ...state, listItems: state.listItems.filter(x => {return x.id !== state.editItemId?  x : null})
+        }
+
         default:
             return state;
     }
 }
 
-export const setList = (list) => ({type: PHONE_BOOK_SET_LIST, payload: list})
 
-export const getList = list => async (dispatch) => {
-    let response = await phoneBookApi.getPhoneBook(list)
-    dispatch(setList(response.data.data));
-}
-export const addPBUser = user => async (dispatch) => {
-    let response = await phoneBookApi.savePhoneBook(user)
-    alert(response.data.msg)
-    dispatch(getList());
-}
-export const updatePBUser = (userId, user) => async (dispatch) => {
-    let response = await phoneBookApi.updatePhoneBook(userId, user)
-    alert(response.data.msg)
-    dispatch(getList());
-}
-
-export const setFinder = (finder) => ({type: PHONE_BOOK_FINDER, payload: finder})
-export const setSortList = (sortedList) => ({type: PHONE_BOOK_FILTER, payload: sortedList})
-
-
+export const inputItem = (val) =>({type: TODO_LIST_INPUT_ITEM, payload: val});
+export const inputItemId = (val) =>({type: TODO_LIST_INPUT_ITEM_ID, payload: val});
+export const addItem = () => ({type: TODO_LIST_ADD_ITEM});
+export const updateItem = () => ({type: TODO_LIST_UPDATE_ITEM});
+export const deleteItem = () => ({type: TODO_LIST_DELETE_ITEM});

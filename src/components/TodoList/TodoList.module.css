@@ -1,0 +1,22 @@
+.header {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.filters {
+    margin-bottom: 15px;
+}
+
+.content {
+    background: #FFF;
+    border: 1px solid #CBCBCB;
+    padding: 10px;
+}
+
+.listbtn {
+    float: right;
+}
+
+.listtxt {
+    margin-left: 15px;
+}

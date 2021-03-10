@@ -12,7 +12,7 @@ import {
 import PhoneBook from "./PhoneBook";
 import {modalClose, modalOpen} from "../../store/modalReducer";
 
-const PhoneBookContainer = (props) => {
+const PhoneBookContainer2 = (props) => {
     useEffect(()=>{props.getList()}, []) // начальная загрузка данных
 
     return <div><PhoneBook props={props}/></div>
@@ -25,8 +25,9 @@ const mapStateToProps = (state) => ({
         sortedList: state.phoneBook.sortedList,
         user: state.phoneBook.user,
         modalControl: state.modal.modalControl,
+        isAuth: state.login.isAuth
     })
 
 export default connect(mapStateToProps,
     {getList, setList, setFinder, setSortList,addPBUser,updatePBUser,deletePBUser, modalOpen, modalClose})
-(PhoneBookContainer);
+(PhoneBookContainer2);

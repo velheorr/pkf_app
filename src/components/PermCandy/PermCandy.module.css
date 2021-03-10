@@ -1,0 +1,18 @@
+.header {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.email {
+    padding-left: 50px;
+}
+.accordHead {
+    min-height: 30px !important;
+}
+
+/*.accordHead>div {
+    margin: 7px 0 !important;
+}*/
+.title {
+    font-weight: 600 !important;
+}

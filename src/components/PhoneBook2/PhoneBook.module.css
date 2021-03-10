@@ -1,7 +1,6 @@
 .header {
     font-size: 18px;
     font-weight: 600;
-    /*padding: 5px;*/
 }
 
 .titleBlock {
@@ -20,6 +19,7 @@
 .twidth5 {width: 5%;}
 .twidth10 {width: 10%;}
 .twidth25 {width: 25%;}
+.twidth30 {width: 30%;}
 
 .bodyTitle>div{border-bottom: thin solid rgba(0, 0, 0, 0.12);}
 .bodyTitle>div:nth-child(even) {background-color: #f0f0f075;}
@@ -28,7 +28,7 @@
 
 .bodyBlock {
     display: flex;
-    padding: 10px 5px;
+    padding: 5px 5px;
     transition: background-color 0.1s;
 }
 
@@ -37,8 +37,10 @@
     cursor: default;
 }
 
-
-.filters {margin-bottom: 15px;}
+.filters {
+    margin-bottom: 15px;
+    height: 30px;
+}
 .filters>div {float: right;}
 .filters span {
     color: rgba(0, 0, 0, 0.6);
@@ -46,6 +48,29 @@
     padding-right: 5px;
 }
 
-/*
-background: #FFF;
-border: 1px solid #CBCBCB;*/
+.editTable {
+    min-width: 22px !important;
+    padding: 0 !important;
+}
+
+.btnYes {background-color: #4caf50 !important;}
+.btnYes span {color: rgb(255 255 255);}
+.btnPrint {margin-left: 5px !important}
+.searcher {width: 460px;}
+.searcher div {width: 400px;}
+
+
+@media print {
+    body * {
+        visibility: hidden;
+    }
+    #sectionPrint, #sectionPrint *  {
+        visibility: visible;
+    }
+    #sectionPrint {
+        position: absolute;
+        left: 0;
+        top: 0;
+    }
+    .invis {display: none}
+}

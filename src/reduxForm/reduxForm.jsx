@@ -1,13 +1,18 @@
 import React from "react";
 import s from "./reduxForm.module.css"
 import {Field} from "redux-form";
+import TextField from '@material-ui/core/TextField';
 
 export const renderField = ({ input, label, meta: { touched, error, warning } }) => (
-     <div>
+        <div>
+            <TextField label={label} {...input} type="text" placeholder="Введите данные" />
+            {touched && ((error && <span className={s.error}>{error}</span>))}
+        </div>
+     /*<div>
          <label>{label}</label>
          <input {...input} type="text" placeholder="Введите данные"/>
          {touched && ((error && <span className={s.error}>{error}</span>))}
-     </div>
+     </div>*/
  )
 
 export const validate = values => {

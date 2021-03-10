@@ -3,6 +3,11 @@ import s from "./PhoneBook.module.css";
 import PhoneBookList from "./PhoneBookList/PhoneBookList";
 import EditPBUserFormRedux from "./Modal/editPhoneBook";
 import AddPBUserFormRedux from "./Modal/addPhoneBook";
+import Button from '@material-ui/core/Button';
+import Input from "@material-ui/core/Input";
+import PhoneIcon from '@material-ui/icons/Phone';
+import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
+import PrintIcon from '@material-ui/icons/Print';
 
 const PhoneBook = ({props}) => {
     const listFilter = (e) => { //фильтр в таблице
@@ -28,6 +33,7 @@ const PhoneBook = ({props}) => {
 
     const addUser = () => { // добавить запись
         let onSubmit = (val) => {
+            /*console.log(val)*/
             props.addPBUser(val)
             props.modalClose()
         }
@@ -35,11 +41,10 @@ const PhoneBook = ({props}) => {
     }
     const deleteUser = (id) =>{
         let userProps = props.list.find(x => x._id === id);
-        console.log(id)
+        /*console.log(id)*/
         props.deletePBUser(userProps._id)
         props.modalClose()
     }
-
 
     const editUser = (id) => { // редактировать запись
         let userProps = props.list.find(x => x._id === id);
@@ -50,25 +55,30 @@ const PhoneBook = ({props}) => {
         props.modalOpen("Редактировать запись", <EditPBUserFormRedux initialValues={userProps} id={userProps._id} onSubmit={onSubmit} deleteUser={deleteUser}/> )
     }
 
-    const PhoneBookListItems = props.list.map(l => <PhoneBookList l={l} key={l._id} editUser={editUser}  />) // загрузка таблици
+    const print=()=>{window.print();} //печать таблици
+
+    const PhoneBookListItems = props.list.map(l => <PhoneBookList l={l} key={l._id} editUser={editUser} isAuth={props.isAuth}  />) // загрузка таблици
+
 
     return (
-        <div>
+        <div id={s.sectionPrint}>
             <div className={s.header}>Телефонная книга</div><hr/>
 
-            <div className={`${s.filters} + ${s.content}`}>
-                <button onClick={addUser}>Добавить</button>
-                <div><span>Найти</span><input type="text" value={props.finder} onChange={listFilter} onClick={cleaner}/></div>
+            <div className={`${s.filters} + ${s.content} + ${s.invis}`}>
+                {props.isAuth && <Button size="small" variant="contained" className={s.btnYes} onClick={addUser}>Добавить</Button>}
+                <Button size="small" variant="contained" className={s.btnPrint} startIcon={<PrintIcon />} onClick={print}>Печать</Button>
+                <div className={s.searcher}><span>Найти: </span><Input value={props.finder} onChange={listFilter} onClick={cleaner} /></div>
             </div>
 
             <div className={s.content}>
                 <div className={s.titleBlock}>
                     <div className={s.twidth25}>Отдел</div>
-                    <div className={s.twidth25}>Должность</div>
+                    {props.isAuth && <div className={s.twidth25}>Должность</div>}
+                    {!props.isAuth && <div className={s.twidth30}>Должность</div>}
                     <div className={s.twidth25}>ФИО</div>
-                    <div className={s.twidth10}>Городской</div>
-                    <div className={s.twidth10}>Внутренний</div>
-                    <div className={s.twidth5}>Edit</div>
+                    <div className={s.twidth10}><PhoneAndroidIcon/></div>
+                    <div className={s.twidth10}><PhoneIcon/></div>
+                    {props.isAuth && <div className={`${s.twidth5} + ${s.invis}`}>Ред.</div>}
                 </div>
                 <div className={s.bodyTitle}>
                     {PhoneBookListItems}

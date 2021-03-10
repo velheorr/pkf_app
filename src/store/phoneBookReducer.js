@@ -1,4 +1,4 @@
-import {phoneBookApi} from '../../api/api'
+import {phoneBookApi} from '../api/api'
 
 const PHONE_BOOK_SET_LIST = 'PHONE_BOOK_SET_LIST';
 const PHONE_BOOK_FINDER = 'PHONE_BOOK_FINDER';
@@ -15,12 +15,7 @@ export const phoneBookReducer = (state = defaultState, action) => {
     switch (action.type) {
         case PHONE_BOOK_SET_LIST:
             let compare = (a,b) =>{
-                /*const AA = a.department.toLowerCase();
-                const BB = b.department.toLowerCase();*/
                 let res = 0;
-                /*if( AA > BB ) {res =1}
-                else if (AA < BB) {res = -1}
-                return res;*/
                 a.department.toLowerCase() > b.department.toLowerCase() ? res = 1 : res = -1
                 return res
             }
@@ -46,6 +41,11 @@ export const addPBUser = user => async (dispatch) => {
 }
 export const updatePBUser = (userId, user) => async (dispatch) => {
     let response = await phoneBookApi.updatePhoneBook(userId, user)
+    alert(response.data.msg)
+    dispatch(getList());
+}
+export const deletePBUser = (userId) => async (dispatch) => {
+    let response = await phoneBookApi.deletePhoneBook(userId)
     alert(response.data.msg)
     dispatch(getList());
 }

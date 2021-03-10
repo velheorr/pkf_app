@@ -1,16 +1,24 @@
 .formDiv div {
-    display: flex;
-    padding-bottom: 15px;
+    /*margin-top: 10px;*/
 }
 .formDiv input {
-    flex: 1;
-    max-width: 350px;
-    margin-left: 10px;
+    width: 570px;
 }
 .formDiv label {
-    width: 130px;
-    text-align: right;
     font-style: italic;
-    color: rgba(0, 0, 0, 0.6)
 }
-.btns {float: right;}
+.btns {
+
+    margin-top: 15px;
+}
+
+.btnsRight {
+    float: right;
+}
+
+.btnYes {
+    background-color: #4caf50 !important;
+}
+.btnYes span {
+    color: rgb(255 255 255);
+}
