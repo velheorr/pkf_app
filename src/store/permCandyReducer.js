@@ -17,6 +17,7 @@ const defaultState = {
         {id: 11,shop: 'М.Рыбалко, 96', phone: '8912-59-16-295', email: 'ryb96@pkf.perm.ru'},
         {id: 12,shop: 'Малкова, 16', phone: '238-04-04', email: 'mal16@pkf.perm.ru'},
         {id: 13,shop: 'Комсомольский проспект, 17', phone: '212-00-81', email: 'kom17@pkf.perm.ru'},
+        {id: 14,shop: 'Некрасова, 35', phone: 'ххх', email: 'nekr35@pkf.perm.ru'},
     ],
 
 };
