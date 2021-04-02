@@ -13,7 +13,6 @@ import {phoneBookReducer3} from "./phoneBookReducer3";
 const reducers = combineReducers({
     login: loginReducer,
     phoneBook: phoneBookReducer,
-    phoneBook3: phoneBookReducer3,
     form: formReducer,  //redux form
     modal: modalReducer,
     todoList: todoListReducer,
