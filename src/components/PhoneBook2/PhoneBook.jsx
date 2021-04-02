@@ -11,7 +11,7 @@ import PrintIcon from '@material-ui/icons/Print';
 
 const PhoneBook = ({props}) => {
     const listFilter = (e) => { //фильтр в таблице
-        props.setFinder(e.target.value)
+        props.setFinder(e.target.value) //данные поиска
         let findx = props.finder
         if(findx.length <= 1) {props.getList(); }
         else{

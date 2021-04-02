@@ -6,12 +6,14 @@ import {modalReducer} from "./modalReducer";
 import {reducer as formReducer} from 'redux-form';
 import {todoListReducer} from "./todoListReducer";
 import {permCandyReducer} from "./permCandyReducer";
+import {phoneBookReducer3} from "./phoneBookReducer3";
 
 
 
 const reducers = combineReducers({
     login: loginReducer,
     phoneBook: phoneBookReducer,
+    phoneBook3: phoneBookReducer3,
     form: formReducer,  //redux form
     modal: modalReducer,
     todoList: todoListReducer,

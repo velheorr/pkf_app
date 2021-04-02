@@ -1,6 +1,8 @@
 import React from 'react';
 import {connect} from "react-redux";
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
+import Hooks from "./hooks/Hooks";
+
 
 const validate = values => {
     const errors = {}
@@ -50,6 +52,7 @@ const LoginContainer = (props) => {
     return (
         <div>
             <TestReduxForm onSubmit={onSubmit} />
+            <Hooks/>
         </div>
     )
 }

@@ -31,6 +31,10 @@ const Sidebar = () => {
                 <NavLink to="/permcandy" activeClassName={s.activeLink}><ListItem button><ListItemIcon className={s.sideIcon}>
                     <StorefrontIcon /></ListItemIcon><ListItemText primary="Пермские конфеты"/></ListItem>
                 </NavLink>
+                <NavLink to="/phonebook3" activeClassName={s.activeLink}><ListItem button><ListItemIcon className={s.sideIcon}>
+                    <ContactPhoneIcon /></ListItemIcon><ListItemText primary="Телефонная книга 3"/></ListItem>
+                </NavLink>
+                <Divider />
             </List>
         </div>
     )
