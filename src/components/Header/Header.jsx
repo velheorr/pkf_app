@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import '../../App.css';
 import s from './Header.module.css'
-import {LoginFormRedux} from "./Auth";
+import WithMaterialUI, {LoginFormRedux} from "./Auth";
 import {connect} from "react-redux";
 import {setLogin} from "../../store/loginReducer";
 import {modalClose, modalOpen} from "../../store/modalReducer";
@@ -9,12 +9,18 @@ import PersonIcon from '@material-ui/icons/Person';
 import Button from "@material-ui/core/Button";
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 
+
 const Header = (props) => {
 
     useEffect(() => {props.modalClose();}, [props.isAuth]);
-    const onSubmit =(val)=>{ props.setLogin(val)}
+    const getAuth = (val) => {
+        console.log(val)
+        props.setLogin(val)
+    }
+    /*const onSubmit =(val)=>{ props.setLogin(val)}*/
     const auth = () =>{
-        props.modalOpen("Авторизация пользователя", <LoginFormRedux onSubmit={onSubmit} />, 300 )
+        /*props.modalOpen("Авторизация пользователя", <LoginFormRedux onSubmit={onSubmit} />, 300 )*/
+        props.modalOpen("Авторизация пользователя", <WithMaterialUI getAuth={getAuth} />, 350 )
     }
 
     return (

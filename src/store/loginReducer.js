@@ -23,8 +23,6 @@ export const loginReducer = (state = defaultState, action) => {
             if (x && y.login === x.login && y.password === x.password) {
                 return {...state, isAuth: true, authedName: x.displayName}
             }
-
-
         default:
             return state;
     }

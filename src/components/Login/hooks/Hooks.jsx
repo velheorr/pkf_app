@@ -13,7 +13,7 @@ const Hooks = () =>{
 
     const [count, setCount] = useState(0);
     useEffect(()=> {
-        console.log('data have been changed')
+        /*console.log('data have been changed')*/
     }, [number, count])
 
 
