@@ -2,7 +2,7 @@ import s from "./Modal.module.css";
 import React from "react";
 import Button from "@material-ui/core/Button";
 import {useFormik} from "formik";
-import {validationFormik} from "../../../Formik/Formik";
+import {validationPBUser} from "../../../Formik/Formik";
 import TextField from "@material-ui/core/TextField";
 
 
@@ -15,10 +15,8 @@ const EditPBUserForm = ({updateUserData,userProps, delUserData})=>{
             number_ext: userProps.number_ext,
             number_in: userProps.number_in,
         },
-        validationSchema: validationFormik,
-        onSubmit: (val) => {
-            updateUserData(val);
-        },
+        validationSchema: validationPBUser,
+        onSubmit: (val) => {updateUserData(val);},
     });
     return (
         <div>
@@ -40,7 +38,7 @@ const EditPBUserForm = ({updateUserData,userProps, delUserData})=>{
                 />{touched.number_in && errors.number_in ? <div className={s.error}>{errors.number_in}</div> : null}
                 <div className={`${s.btns} + ${s.btnsRight}`}><Button size="small" variant="outlined" className={s.btnYes} type="submit">Сохранить</Button></div>
             </form>
-            <div className={s.btns}><Button size="small" variant="contained" color='secondary' onClick={()=>{delUserData(userProps._id)}}>Удалить</Button></div>
+            <div className={s.btns}><Button size="small" variant="outlined" color='secondary' onClick={()=>{delUserData(userProps._id)}}>Удалить</Button></div>
         </div>
     )
 }

@@ -4,8 +4,6 @@ import {connect} from "react-redux";
 import {modalClose, modalOpen} from "../store/modalReducer";
 import Button from "@material-ui/core/Button";
 import CloseIcon from '@material-ui/icons/Close';
-import EditIcon from "@material-ui/icons/Edit";
-
 
 const ModalX = (props) =>{
     const exitModal = () =>{props.modalClose()}
@@ -27,14 +25,14 @@ const ModalXInner = ({exitModal, modalTitle, modalBody, modalWidth}) => {
             <div className={s.modal} style={modalWidth}>
                 <div className={s.modalHead}>
                     <span>{modalTitle}</span>
-                    <Button size="small" variant="contained" className={s.closeBtn} onClick={exitModal}><CloseIcon /></Button>
+                    <Button size="small" variant="outlined" className={s.closeBtn} onClick={exitModal}><CloseIcon /></Button>
                 </div>
                 <div className={s.modalBody}>{modalBody}</div>
             </div>
         </div>
     )
 }
-/*<button className={s.closeBtn} onClick={exitModal}>x</button>*/
+
 
 
 const mapStateToProps = (state) => ({

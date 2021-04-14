@@ -6,7 +6,7 @@ export const validationLogin = Yup.object({
     password: Yup.string().min(4, 'Длинна пароля не менее 4х символов*').required('Необходимо ввести пароль*'),
 })
 
-export const validationFormik = Yup.object({
+export const validationPBUser = Yup.object({
     department: Yup.string().required('Поле не может быть пустым*'),
     position: Yup.string().required('Поле не может быть пустым'),
     name: Yup.string().required('Поле не может быть пустым'),

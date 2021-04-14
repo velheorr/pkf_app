@@ -43,7 +43,6 @@
 }
 .filters>div {float: right;}
 .filters span {
-    color: rgba(0, 0, 0, 0.6);
     font-style: italic;
     padding-right: 5px;
 }
@@ -53,8 +52,11 @@
     padding: 0 !important;
 }
 
-.btnYes {background-color: #4caf50 !important;}
-.btnYes span {color: rgb(255 255 255);}
+.btnYes {border: 1px solid rgb(76 175 80) !important;}
+.btnYes span {color: #4caf50;}
+
+
+
 .btnPrint {margin-left: 5px !important}
 .searcher {width: 460px;}
 .searcher div {width: 400px;}

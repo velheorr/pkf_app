@@ -28,7 +28,7 @@ const LoginForm = ({getAuth}) => {
                     fullWidth name="password" label="Пароль" type="password" value={values.password}
                     onChange={handleChange} onBlur={handleBlur}
                 />{touched.password && errors.password ? <div className={s.error}>{errors.password}</div> : null}
-                <Button color="primary" variant="contained" fullWidth type="submit">Войти</Button>
+                <Button color="primary" variant="outlined" fullWidth type="submit">Войти</Button>
             </form>
         </div>
     );

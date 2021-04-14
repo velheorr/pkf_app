@@ -1,8 +1,6 @@
 import React from 'react';
 import s from "./PhoneBook.module.css";
 import PhoneBookList from "./PhoneBookList/PhoneBookList";
-import EditPBUserFormRedux from "./Modal/editPhoneBook";
-import AddPBUserFormRedux from "./Modal/addPhoneBook";
 import Button from '@material-ui/core/Button';
 import Input from "@material-ui/core/Input";
 import PhoneIcon from '@material-ui/icons/Phone';
@@ -43,12 +41,11 @@ const PhoneBook = ({props}) => {
 
     const editUser = (id) => { // редактировать запись и удалить
         let userProps = props.list.find(x => x._id === id);
-
         let updateUserData = (val) => {
             props.updatePBUser(userProps._id, val)
             props.modalClose()
         }
-        let delUserData = (id)=> {
+        let delUserData = (id) => {
             props.deletePBUser(id)
             props.modalClose()
         }
@@ -65,8 +62,8 @@ const PhoneBook = ({props}) => {
             <div className={s.header}>Телефонная книга</div><hr/>
 
             <div className={`${s.filters} + ${s.content} + ${s.invis}`}>
-                {props.isAuth && <Button size="small" variant="contained" className={s.btnYes} onClick={addUser}>Добавить</Button>}
-                <Button size="small" variant="contained" className={s.btnPrint} startIcon={<PrintIcon />} onClick={print}>Печать</Button>
+                {props.isAuth && <Button size="small" variant="outlined" className={s.btnYes} onClick={addUser}>Добавить</Button>}
+                <Button size="small" variant="outlined" className={s.btnPrint} startIcon={<PrintIcon />} onClick={print}>Печать</Button>
                 <div className={s.searcher}><span>Найти: </span><Input value={props.finder} onChange={listFilter} onClick={cleaner} /></div>
             </div>
 

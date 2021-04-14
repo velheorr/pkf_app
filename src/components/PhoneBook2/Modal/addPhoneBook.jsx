@@ -3,7 +3,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import {useFormik} from "formik";
 import TextField from "@material-ui/core/TextField";
-import {validationFormik} from "../../../Formik/Formik";
+import {validationPBUser} from "../../../Formik/Formik";
 
 
 
@@ -16,10 +16,8 @@ const AddPBUserForm = ({setUserData})=>{
             number_ext: '',
             number_in: '',
         },
-        validationSchema: validationFormik,
-        onSubmit: (val) => {
-            setUserData(val);
-        },
+        validationSchema: validationPBUser,
+        onSubmit: (val) => {setUserData(val);},
     });
     return (
         <div>
