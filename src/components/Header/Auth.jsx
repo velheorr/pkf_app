@@ -1,48 +1,38 @@
 import s from "./Header.module.css";
 import React from "react";
 import { useFormik } from 'formik';
-import * as yup from 'yup';
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
+import {validationLogin} from "../../Formik/Formik";
 
-const validationSchema = yup.object({
-    login: yup
-        .string('Enter your login')
-        .required('Необходимо ввести логин'),
-    password: yup
-        .string('Enter your password')
-        .min(4, 'Пароль должен быть не менее 4х символов')
-        .required('Необходимо ввести пароль'),
-});
 
-const WithMaterialUI = ({getAuth}) => {
-    const formik = useFormik({
+const LoginForm = ({getAuth}) => {
+
+    const {handleSubmit, handleChange, values, touched, errors, handleBlur} = useFormik({
         initialValues: {
             login: '',
             password: '',
         },
-        validationSchema: validationSchema,
-        onSubmit: (val) => {getAuth(val);},
+        validationSchema: validationLogin,
+        onSubmit: (values) => {getAuth(values);}
     });
 
     return (
         <div>
-            <form className={s.login} onSubmit={formik.handleSubmit}>
+            <form className={s.login} onSubmit={handleSubmit}>
                 <TextField
-                    fullWidth id="login" name="login" label="Логин" value={formik.values.email}
-                    onChange={formik.handleChange} error={formik.touched.login && Boolean(formik.errors.login)}
-                    helperText={formik.touched.login && formik.errors.login}
-                />
+                    fullWidth name="login" label="Логин" type="text" value={values.login}
+                    onChange={handleChange} onBlur={handleBlur}
+                />{touched.login && errors.login ? <div className={s.error}>{errors.login}</div> : null}
                 <TextField
-                    fullWidth id="password" name="password" label="Пароль" type="password" value={formik.values.password}
-                    onChange={formik.handleChange} error={formik.touched.password && Boolean(formik.errors.password)}
-                    helperText={formik.touched.password && formik.errors.password}
-                />
+                    fullWidth name="password" label="Пароль" type="password" value={values.password}
+                    onChange={handleChange} onBlur={handleBlur}
+                />{touched.password && errors.password ? <div className={s.error}>{errors.password}</div> : null}
                 <Button color="primary" variant="contained" fullWidth type="submit">Войти</Button>
             </form>
         </div>
     );
 };
 
-export default WithMaterialUI;
+export default LoginForm;
 

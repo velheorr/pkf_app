@@ -1,6 +1,4 @@
-.formDiv div {
-    /*margin-top: 10px;*/
-}
+
 .formDiv input {
     width: 570px;
 }
@@ -8,10 +6,8 @@
     font-style: italic;
 }
 .btns {
-
     margin-top: 15px;
 }
-
 .btnsRight {
     float: right;
 }
@@ -21,4 +17,13 @@
 }
 .btnYes span {
     color: rgb(255 255 255);
+}
+
+.error {
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+    position: absolute;
+    right: 15px;
+
 }

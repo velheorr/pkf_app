@@ -24,3 +24,8 @@
 .login button {
     margin-top: 20px;
 }
+.error {
+    color: red;
+    font-style: italic;
+    font-size: 12px;
+}

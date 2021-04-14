@@ -8,6 +8,8 @@ import Input from "@material-ui/core/Input";
 import PhoneIcon from '@material-ui/icons/Phone';
 import PhoneAndroidIcon from '@material-ui/icons/PhoneAndroid';
 import PrintIcon from '@material-ui/icons/Print';
+import AddPBUserForm from "./Modal/addPhoneBook";
+import EditPBUserForm from "./Modal/editPhoneBook";
 
 const PhoneBook = ({props}) => {
     const listFilter = (e) => { //фильтр в таблице
@@ -32,27 +34,25 @@ const PhoneBook = ({props}) => {
     }
 
     const addUser = () => { // добавить запись
-        let onSubmit = (val) => {
-            /*console.log(val)*/
+        let setUserData = (val)=>{
             props.addPBUser(val)
             props.modalClose()
         }
-        props.modalOpen("Добавить запись", <AddPBUserFormRedux onSubmit={onSubmit}/> )
-    }
-    const deleteUser = (id) =>{
-        let userProps = props.list.find(x => x._id === id);
-        /*console.log(id)*/
-        props.deletePBUser(userProps._id)
-        props.modalClose()
+        props.modalOpen("Добавить запись", <AddPBUserForm setUserData={setUserData}/> )
     }
 
-    const editUser = (id) => { // редактировать запись
+    const editUser = (id) => { // редактировать запись и удалить
         let userProps = props.list.find(x => x._id === id);
-        let onSubmit = (val) => {
+
+        let updateUserData = (val) => {
             props.updatePBUser(userProps._id, val)
             props.modalClose()
         }
-        props.modalOpen("Редактировать запись", <EditPBUserFormRedux initialValues={userProps} id={userProps._id} onSubmit={onSubmit} deleteUser={deleteUser}/> )
+        let delUserData = (id)=> {
+            props.deletePBUser(id)
+            props.modalClose()
+        }
+        props.modalOpen("Редактировать запись", <EditPBUserForm userProps={userProps} id={userProps._id} updateUserData={updateUserData} delUserData={delUserData}/> )
     }
 
     const print=()=>{window.print();} //печать таблици
