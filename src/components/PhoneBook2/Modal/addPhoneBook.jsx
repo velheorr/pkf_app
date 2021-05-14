@@ -1,11 +1,25 @@
 import s from "./Modal.module.css";
 import React from "react";
 import Button from "@material-ui/core/Button";
-import {useFormik} from "formik";
+import {useField, useFormik} from "formik";
 import TextField from "@material-ui/core/TextField";
 import {validationPBUser} from "../../../Formik/Formik";
 
+/*const FormikField = ({label, handleChange, handleBlur, ...props}) =>{
+    const [field, meta] = useField(props);
+    return (
+        <>
+            <TextField>
+                placeholder='Введите данные' onChange={handleChange} onBlur={handleBlur}
 
+            </TextField>
+            {meta.touched && meta.error ? (
+                <div className="error">{meta.error}</div>
+            ) : null}
+
+        </>
+    )
+}*/
 
 const AddPBUserForm = ({setUserData})=>{
     const {handleSubmit, handleChange, values, touched, errors, handleBlur} = useFormik({
@@ -22,6 +36,7 @@ const AddPBUserForm = ({setUserData})=>{
     return (
         <div>
             <form className={s.login} onSubmit={handleSubmit}>
+
                 <TextField
                     name="department" label="Отдел" type="text" value={values.department} placeholder='Введите данные' fullWidth onChange={handleChange} onBlur={handleBlur}
                 />{touched.department && errors.department ? <div className={s.error}>{errors.department}</div> : null}

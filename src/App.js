@@ -10,6 +10,7 @@ import ModalX from "./ModalX/ModalX";
 import TodoListContainer from "./components/TodoList/TodoListContainer";
 import PhoneBookContainer2 from "./components/PhoneBook2/PhoneBookContainer2";
 import PermCandy from "./components/PermCandy/PermCandy";
+import TodoListContainer2 from "./components/TodoList2/TodoListContainer2";
 
 const App = () => {
     return (
@@ -23,6 +24,7 @@ const App = () => {
                     <Route path='/todolist' render={() => <TodoListContainer/>}/>
                     <Route path='/phonebook2' render={() => <PhoneBookContainer2/>}/>
                     <Route path='/permcandy' render={() => <PermCandy/>}/>
+                    <Route path='/todolist2' render={() => <TodoListContainer2/>}/>
                     <Route path='*' render={() => <div>Error 404  "Страница не найдена"</div>}/>
                 </Switch>
                 <ModalX/>

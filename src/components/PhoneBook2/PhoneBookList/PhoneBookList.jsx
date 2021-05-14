@@ -20,8 +20,8 @@ const PhoneBookList = ({ l, editUser, isAuth}) => {
             <div className={s.twidth10}>
                 {l.number_in.length >=2 ? <Chip variant="outlined" size="small" label={l.number_in} /> : ' '}
             </div>
-            {isAuth && <div className={`${s.twidth5} + ${s.invis}`}>
-                    <Button size="small" variant="outlined" className={s.editTable} onClick={()=> editUser(l._id)}><EditIcon/></Button>
+            {isAuth && <div className={`${s.twidth5} ${s.invis}`}>
+                    <Button size="small" variant="outlined" className={`${s.editTable}`} onClick={()=> editUser(l._id)}><EditIcon/></Button>
                 </div>
             }
 

@@ -32,6 +32,10 @@ const Sidebar = () => {
                     <StorefrontIcon /></ListItemIcon><ListItemText primary="Пермские конфеты"/></ListItem>
                 </NavLink>
                 <Divider />
+                <NavLink to="/todolist2" activeClassName={s.activeLink}><ListItem button><ListItemIcon className={s.sideIcon}>
+                    <PlaylistAddIcon /></ListItemIcon><ListItemText primary="Todo List 2"/></ListItem>
+                </NavLink>
+                <Divider />
             </List>
         </div>
     )

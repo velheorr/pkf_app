@@ -34,7 +34,6 @@ export const todoListReducer = (state = defaultState, action) => {
         case TODO_LIST_INPUT_ITEM:  return {...state, newItem: action.payload}
         case TODO_LIST_INPUT_ITEM_ID:  return {...state, editItemId: action.payload}
         case TODO_LIST_DELETE_ITEM:  return {
-            //...state, listItems: state.listItems.filter(x => {if(x.id != state.editItemId){return x}})
             ...state, listItems: state.listItems.filter(x => {return x.id !== state.editItemId?  x : null})
         }
 
