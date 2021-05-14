@@ -20,7 +20,7 @@ const TodoList = ({props}) => {
 
     return(
         <div>
-            <div className={s.header}>Todo List 2</div><hr/>
+            <div className={s.header}>Todo List</div><hr/>
             <div className={`${s.content} ${s.content_data}`}>
                 <span>Todo: </span><Input  value={props.item_text} onChange={inputItem} />
                 <Button size="small" variant="outlined" className={s.btnYes} startIcon={<PlaylistAddIcon />} onClick={addItem}>Add todo</Button>

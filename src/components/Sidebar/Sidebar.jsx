@@ -20,7 +20,7 @@ const Sidebar = () => {
                     <ExitToAppIcon /></ListItemIcon><ListItemText primary="Login"/></ListItem>
                 </NavLink>
                 <Divider />
-                <NavLink to="/todolist" activeClassName={s.activeLink}><ListItem button><ListItemIcon className={s.sideIcon}>
+                <NavLink to="/todolist2" activeClassName={s.activeLink}><ListItem button><ListItemIcon className={s.sideIcon}>
                     <PlaylistAddIcon /></ListItemIcon><ListItemText primary="Todo List"/></ListItem>
                 </NavLink>
                 <Divider />
@@ -30,10 +30,6 @@ const Sidebar = () => {
                 <Divider />
                 <NavLink to="/permcandy" activeClassName={s.activeLink}><ListItem button><ListItemIcon className={s.sideIcon}>
                     <StorefrontIcon /></ListItemIcon><ListItemText primary="Пермские конфеты"/></ListItem>
-                </NavLink>
-                <Divider />
-                <NavLink to="/todolist2" activeClassName={s.activeLink}><ListItem button><ListItemIcon className={s.sideIcon}>
-                    <PlaylistAddIcon /></ListItemIcon><ListItemText primary="Todo List 2"/></ListItem>
                 </NavLink>
                 <Divider />
             </List>

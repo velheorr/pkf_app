@@ -3,7 +3,6 @@ const TODO_LIST2_INPUT_ID = 'TODO_LIST2_INPUT_ID';
 const TODO_LIST2_ADD_ITEM = 'TODO_LIST2_ADD_ITEM';
 const TODO_LIST2_DELETE_ITEM = 'TODO_LIST2_DELETE_ITEM';
 
-
 const defaultState = {
     listItems: [
         {id: 1, text: 'aaaaaaaaa'},
@@ -12,7 +11,6 @@ const defaultState = {
     ],
     item_text: '',
     item_id: '',
-
 };
 
 export const todoListReducer2 = (state = defaultState, action) => {
@@ -22,10 +20,6 @@ export const todoListReducer2 = (state = defaultState, action) => {
             let x = state.listItems.find(el => el.id === action.payload).text
             return {...state, item_id: action.payload, item_text: x}
         case TODO_LIST2_ADD_ITEM:
-            /*if(state.item_text.length) {
-                return {...state, listItems: [...state.listItems, {id: Date.now(), text: state.item_text}], item_text: '',item_id: ''}
-            }*/
-
             if(state.item_text.length) {
                 if(state.item_id){
                     return {
@@ -39,7 +33,6 @@ export const todoListReducer2 = (state = defaultState, action) => {
             }
         case TODO_LIST2_DELETE_ITEM:
             return {...state, listItems: state.listItems.filter(x => {return x.id !== state.item_id ? x : null}),item_id: '', item_text: ''}
-
         default:
             return state;
     }
