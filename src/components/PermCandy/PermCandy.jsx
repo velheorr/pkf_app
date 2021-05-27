@@ -1,15 +1,11 @@
-import React, {useEffect, useState} from 'react'
-
+import React from 'react'
 import {connect} from "react-redux";
 import PKshop from "./PKshop";
 import {setInitList} from "../../store/permCandyReducer";
 
 
-
-
 const PermCandy =(props)=> {
     /*useEffect(()=>{props.setInitList()}, []) // начальная загрузка данных*/
-
     return <PKshop props={props}/>
 }
 
